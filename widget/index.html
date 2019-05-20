@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+
+        function apiready(){
+
+            api.openFrame({
+                useWKWebView : true,
+
+                // ios : window页面内可以侧滑返回
+                historyGestureEnabled  : false,
+
+                // 页面弹性
+                // bounces : true,
+
+                // ios弹出键盘时页面不会上移
+                // softInputMode : 'pan',
+
+                url : 'http://192.168.199.184:8081/index.html',
+                // url : './dict/index.html',
+                name : 'index23333'
+            })
+
+            api.addEventListener({
+                name: 'keyback'
+            },function(ret, err) {
+                api.sendEvent({ name : 'androidBack' })
+            })
+        }
+    </script>
+
+</body>
+</html>
